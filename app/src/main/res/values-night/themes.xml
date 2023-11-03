@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SenakitchNew" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/colorpri</item>
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+    <style name="Boton">
+        <item name="colorSecondary">@color/eliminar</item>
+        <item name="colorTertiary">@color/actualizar</item>
+    </style>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            app:itemIconTint="@color/colorpri"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_gallery"
+            app:itemIconTint="@color/colorpri"
+            android:icon="@drawable/person"
+            android:title="perfil" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Productos" />
+        <item
+            android:id="@+id/edit_perfil"
+            android:icon="@drawable/edit"
+            android:title="Editar perfil" />
+    </group>
+</menu>
