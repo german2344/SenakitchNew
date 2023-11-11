@@ -1,5 +1,6 @@
 package com.example.senakitchnew
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 
@@ -11,6 +12,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.senakitchnew.ImportClasses.popupalert
+import com.example.senakitchnew.databinding.ActivityLoginBinding
 import com.example.senakitchnew.databinding.ActivityMenuBinding
 
 class menu_activity : AppCompatActivity() {
@@ -26,10 +29,14 @@ class menu_activity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMenu.toolbar)
 
+
+
         /*binding.appBarMenu.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }*/
+
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_menu)
@@ -37,13 +44,17 @@ class menu_activity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.edit_perfil,R.id.edit_perfil2
+                R.id.nav_home, R.id.edit, R.id.nav_slideshow1, R.id.Comentario,R.id.Descargar
             ), drawerLayout
         )
+
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

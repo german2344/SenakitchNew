@@ -22,9 +22,9 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="100dp"
                 android:layout_height="90dp"
-                android:layout_marginLeft="170dp"
+                android:layout_marginLeft="150dp"
                 android:layout_marginTop="70dp"
                 android:background="@drawable/logofinal23"
                 tools:ignore="ContentDescription"/>

@@ -2,7 +2,9 @@ package com.example.senakitchnew.Services
 
 import com.example.senakitchnew.bring.RegistroBring
 import com.example.senakitchnew.bring.LoginBring
+import com.example.senakitchnew.bring.ProductBring
 import com.example.senakitchnew.send.LoginSend
+import com.example.senakitchnew.send.ProductSend
 import com.example.senakitchnew.send.RegisterSend
 import com.example.senakitchnew.send.User
 import retrofit2.Call
@@ -21,4 +23,9 @@ interface ApiService {
 
     @GET("/api/users/{userId}")
     fun getUserProfile(@Path("userId") userId: String): Call<User>
+    @GET("/api/logout/")
+    fun logoutUser(): Call<RegisterSend>?
+
+    @GET("/api/product")
+    fun getProduct(): Call<List<ProductSend>>
 }

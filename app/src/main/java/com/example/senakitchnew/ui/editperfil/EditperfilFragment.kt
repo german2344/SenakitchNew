@@ -6,16 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.senakitchnew.databinding.FragmentEditarPerfilBinding
-import com.example.senakitchnew.databinding.FragmentGalleryBinding
-import com.example.senakitchnew.ui.gallery.GalleryViewModel
-
+import com.bumptech.glide.Glide
+import com.example.senakitchnew.R
+import com.example.senakitchnew.databinding.ActivityEditarperfilBinding
 class EditperfilFragment : Fragment() {
 
-    private var _binding: FragmentEditarPerfilBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: ActivityEditarperfilBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,17 +19,32 @@ class EditperfilFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
-
-        _binding = FragmentEditarPerfilBinding.inflate(inflater, container, false)
+        _binding = ActivityEditarperfilBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /* val textView: TextView = binding.textGallery
-         galleryViewModel.text.observe(viewLifecycleOwner) {
-             textView.text = it
-         }*/
+        val editPerfilModel = ViewModelProvider(this)[EditperfilModel::class.java]
+
+        // Data of user
+        editPerfilModel.user.observe(viewLifecycleOwner) { newData ->
+            binding.name.text = newData.name
+            binding.email.text = newData.email
+
+            context?.let {
+                Glide.with(it)
+                    .load(newData.profile_photo_url)
+                    .placeholder(R.drawable.logo) // Imagen de carga mientras se carga la imagen
+                    .error(R.drawable.logo) // Imagen de error si no se puede cargar la imagen
+                    .into(binding.profileImage)
+            }
+
+        }
+
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     override fun onDestroyView() {
@@ -41,3 +52,4 @@ class EditperfilFragment : Fragment() {
         _binding = null
     }
 }
+

@@ -11,17 +11,35 @@
             app:itemIconTint="@color/colorpri"
             android:title="Inicio" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/edit"
             app:itemIconTint="@color/colorpri"
             android:icon="@drawable/person"
             android:title="perfil" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_slideshow1"
+            android:icon="@drawable/production"
             android:title="Productos" />
         <item
-            android:id="@+id/edit_perfil"
-            android:icon="@drawable/edit"
-            android:title="Editar perfil" />
+            android:id="@+id/Comentario"
+            android:icon="@drawable/baseline_comment_24"
+            android:title="Comentarios" />
+        <item
+            android:id="@+id/Descargar"
+            android:icon="@drawable/baseline_arrow_downward_24"
+            android:title="Descargas" />
+
     </group>
+
+    <item
+        android:title="Opciones">
+
+        <menu>
+            <item
+                android:id="@+id/salir"
+                android:icon="@drawable/nav_logout"
+                android:title="Cerrar la sesión"/>
+        </menu>
+
+
+    </item>
 </menu>

@@ -8,18 +8,27 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logofinal23"
         android:label="Senakitch"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@drawable/logofinal23"
         android:supportsRtl="true"
         android:theme="@style/Theme.SenakitchNew"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activity_pruebas"
+            android:name=".activity_menu"
             android:exported="false" />
         <activity
-            android:name=".editar_perfil"
+            android:name=".descargas_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_comentarios"
+            android:exported="false" />
+        <activity
+            android:name=".productos_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_editperfil"
             android:exported="false" />
         <activity
             android:name=".menu_activity"

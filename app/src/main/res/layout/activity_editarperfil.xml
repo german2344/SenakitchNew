@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoperfil34"
-    tools:context=".ui.gallery.GalleryFragment"
-    android:id="@+id/viewRoot"
     >
 
 
@@ -38,19 +36,19 @@
             android:textColor="@color/white"/>
 
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_gravity="center_horizontal">-->
-<!--            <ImageView-->
-<!--                android:layout_width="80dp"-->
-<!--                android:layout_height="90dp"-->
-<!--                android:layout_marginLeft="170dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/logo"-->
-<!--                tools:ignore="ContentDescription"/>-->
-<!--        </LinearLayout>-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:layout_gravity="center_horizontal">-->
+        <!--            <ImageView-->
+        <!--                android:layout_width="80dp"-->
+        <!--                android:layout_height="90dp"-->
+        <!--                android:layout_marginLeft="170dp"-->
+        <!--                android:layout_marginTop="10dp"-->
+        <!--                android:background="@drawable/logo"-->
+        <!--                tools:ignore="ContentDescription"/>-->
+        <!--        </LinearLayout>-->
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="150dp"
@@ -104,18 +102,17 @@
                 android:background="@drawable/person">
             </ImageView>
 
-            <EditText
-                android:textColor="@color/colorpri"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/username"
-                android:textColorHint="@color/white"
+            <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Usuario"
-                android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:ems="10"
-                android:inputType="text" />
+                android:layout_marginTop="16dp"
+                android:text="Nombre del usuario"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
         </LinearLayout>
 
 
@@ -152,18 +149,16 @@
                 android:background="@drawable/email">
             </ImageView>
 
-            <EditText
-                android:textColor="@color/colorpri"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/Correo"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="236dp"
                 android:layout_height="wrap_content"
-                android:hint="Correo"
-                android:textColorHint="@color/white"
-                android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:text="Correo electrónico del usuario"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
         </LinearLayout>
 
 
@@ -212,7 +207,7 @@
                 android:id="@+id/telefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Correo"
+                android:hint="Telefono"
                 android:textColorHint="@color/white"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
@@ -231,16 +226,18 @@
             >
 
             <Button
+                android:id="@+id/edit"
                 android:backgroundTint="@color/actualizar"
                 android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Editar perfil" />
+                android:layout_height="wrap_content"
+                android:text="Editar perfil" />
 
             <Button
-                android:backgroundTint="@color/eliminar"
+                android:id="@+id/delete"
                 android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eliminar perfil" />
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/eliminar"
+                android:text="Eliminar perfil" />
         </LinearLayout>
 
 

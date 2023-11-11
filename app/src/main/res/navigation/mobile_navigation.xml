@@ -7,31 +7,34 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.senakitchnew.ui.home.HomeFragment"
+        android:name="com.example.senakitchnew.ui.Mision.MisionFragment"
         android:label="Inicio"
+        tools:layout="@layout/activity_mision" />
+
+
+    <fragment
+        android:id="@+id/edit"
+        android:name="com.example.senakitchnew.ui.editperfil.EditperfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/activity_editarperfil" />
+
+    <fragment
+        android:id="@+id/nav_slideshow1"
+        android:name="com.example.senakitchnew.ui.home.HomeFragment"
+        android:label="Productos"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.senakitchnew.ui.gallery.GalleryFragment"
-        android:label="Perfil"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/Comentario"
+        android:name="com.example.senakitchnew.ui.comentarios.ComentariosFragment"
+        android:label="Comentarios"
+        tools:layout="@layout/activity_comentarios" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.senakitchnew.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/edit_perfil"
-        android:name="com.example.senakitchnew.ui.editperfil.EditperfilFragment"
-        android:label="Editar_perfil"
-        tools:layout="@layout/fragment_editar_perfil" />
+        android:id="@+id/Descargar"
+        android:name="com.example.senakitchnew.ui.Descargas.DescargasFragment"
+        android:label="Descargas"
+        tools:layout="@layout/activity_descargas" />
 
-    <fragment
-        android:id="@+id/edit_perfil2"
-        android:name="com.example.senakitchnew.ui.editar2.EditperfilFragment2"
-        android:label="Editar_perfil"
-        tools:layout="@layout/activity_pruebas" />
 
 </navigation>
