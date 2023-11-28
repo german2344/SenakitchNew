@@ -9,6 +9,14 @@
     android:background="@drawable/fondoperfil34"
     >
 
+
+    <Button
+        android:id="@+id/ButtonCrear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear producto"
+        />
+
     <TextView
         android:id="@+id/text_home"
         android:text="Tus productos"

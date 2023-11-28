@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.senakitchnew.Connection.ApiConnection
+import com.example.senakitchnew.send.PlatosSend
 import com.example.senakitchnew.send.ProductSend
+import com.example.senakitchnew.send.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,11 +29,13 @@ class HomeViewModel : ViewModel() {
     private val _contentData = MutableLiveData<List<ProductSend>>()
     val contentData: LiveData<List<ProductSend>> get() = _contentData
 
+    private val userById = MutableLiveData<User>()
+    val user: LiveData<User> get() = userById
     private fun getAllContent() {
         CoroutineScope(Dispatchers.IO).launch {
             val apiGetContent = ApiConnection.getApiService().getProduct()
 
-            apiGetContent.enqueue(object : Callback<List<ProductSend>> { // Cambiado a List<ContentResponse>
+            apiGetContent.enqueue(object: Callback<List<ProductSend>> { // Cambiado a List<ContentResponse>
                 override fun onResponse(
                     call: Call<List<ProductSend>>,
                     response: Response<List<ProductSend>>
@@ -43,11 +47,15 @@ class HomeViewModel : ViewModel() {
                         }
                     }
                 }
-
                 override fun onFailure(call: Call<List<ProductSend>>, t: Throwable) {
                     Log.e("Error content", t.toString())
                 }
             })
         }
     }
+
+
+
+
+
 }

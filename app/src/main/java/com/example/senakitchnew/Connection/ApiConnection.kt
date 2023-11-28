@@ -1,6 +1,5 @@
 package com.example.senakitchnew.Connection
 
-
 import com.example.senakitchnew.Services.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConnection {
-    val baseUrl = "http://192.168.101.79:8000"
+    val baseUrl = "http://192.168.101.9:8000"
 
     private fun getRetrofit(): Retrofit {
 

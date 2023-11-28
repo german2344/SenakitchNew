@@ -29,6 +29,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
     <style name="Theme.SenakitchNew.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SenakitchNew.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

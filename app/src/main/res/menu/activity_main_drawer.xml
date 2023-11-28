@@ -22,7 +22,11 @@
         <item
             android:id="@+id/Comentario"
             android:icon="@drawable/baseline_comment_24"
-            android:title="Comentarios" />
+            android:title="Opiniones " />
+        <item
+            android:id="@+id/Platos"
+            android:icon="@drawable/baseline_dinner_dining_24"
+            android:title="Platos" />
         <item
             android:id="@+id/Descargar"
             android:icon="@drawable/baseline_arrow_downward_24"

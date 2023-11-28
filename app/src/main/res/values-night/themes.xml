@@ -9,4 +9,8 @@
         <item name="colorSecondary">@color/eliminar</item>
         <item name="colorTertiary">@color/actualizar</item>
     </style>
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

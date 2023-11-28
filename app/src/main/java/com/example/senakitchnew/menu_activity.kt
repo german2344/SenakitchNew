@@ -31,32 +31,43 @@ class menu_activity : AppCompatActivity() {
 
 
 
-        /*binding.appBarMenu.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
-
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_menu)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.edit, R.id.nav_slideshow1, R.id.Comentario,R.id.Descargar
+                R.id.nav_home, R.id.edit, R.id.nav_slideshow1, R.id.Comentario, R.id.Descargar
             ), drawerLayout
         )
 
-
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
 
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.salir -> {
+                    // Navigate to the login destination
+                    val loginIntent = Intent(this, activity_login::class.java)
+                    startActivity(loginIntent)
+                    true
+                }
 
+                else -> {
+                    // Handle other menu item clicks
+                    if (menuItem.itemId != navController.currentDestination?.id) {
+                        // Avoid unnecessary navigation if already on the selected destination
+                        navController.navigate(menuItem.itemId)
+                    }
+                    // Close the drawer after selecting an item
+                    drawerLayout.closeDrawers()
+                    true
+                }
+            }
+        }
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_activity, menu)
         return true
@@ -66,6 +77,7 @@ class menu_activity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_menu)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 
 
 

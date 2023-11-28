@@ -155,4 +155,10 @@ class activity_login : AppCompatActivity() {
         imm.hideSoftInputFromWindow(binding.viewRoot.windowToken, 0)
     }
 
+
+
+
+
+
+
 }

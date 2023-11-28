@@ -54,6 +54,9 @@ android {
 
 dependencies {
 
+
+    implementation ("androidx.fragment:fragment:1.3.0")
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
@@ -75,7 +78,7 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
 
 
-
+    implementation ("androidx.databinding:databinding-runtime:8.1.4")
 
 
 
@@ -117,6 +120,12 @@ dependencies {
 
     implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation ("androidx.core:core-ktx:1.6.0")
+
+    implementation ("androidx.appcompat:appcompat:1.3.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata:2.6.2")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+
+
 
 
 

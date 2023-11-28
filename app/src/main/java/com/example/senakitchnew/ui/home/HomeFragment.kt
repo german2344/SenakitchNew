@@ -1,5 +1,6 @@
 package com.example.senakitchnew.ui.home
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +11,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.senakitchnew.R
-import com.example.senakitchnew.databinding.FragmentHomeBinding
+import com.example.senakitchnew.databinding.FragmentPlatosBinding
+
 
 class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapter
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentPlatosBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,7 +34,7 @@ class HomeFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this)[HomeViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentPlatosBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
@@ -49,9 +51,9 @@ class HomeFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        val PlatosViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-        homeViewModel.contentData.observe(viewLifecycleOwner) { newData ->
+        PlatosViewModel.contentData.observe(viewLifecycleOwner) { newData ->
             adapter = ProductAdapter(newData)
             recyclerView.adapter = adapter
         }
@@ -61,4 +63,10 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
+
+
+
 }

@@ -10,7 +10,6 @@ import com.example.senakitchnew.bring.RegistroBring
 import com.example.senakitchnew.databinding.ActivityRegistro2Binding
 import com.example.senakitchnew.send.RegisterSend
 import com.example.senakitchnew.ImportClasses.popupalert
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

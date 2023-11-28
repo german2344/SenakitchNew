@@ -28,13 +28,18 @@
         android:id="@+id/Comentario"
         android:name="com.example.senakitchnew.ui.comentarios.ComentariosFragment"
         android:label="Comentarios"
-        tools:layout="@layout/activity_comentarios" />
+        tools:layout="@layout/fragment_coment" />
 
     <fragment
         android:id="@+id/Descargar"
         android:name="com.example.senakitchnew.ui.Descargas.DescargasFragment"
         android:label="Descargas"
-        tools:layout="@layout/activity_descargas" />
+        tools:layout="@layout/fragment_recetas" />
+    <fragment
+        android:id="@+id/Platos"
+        android:name="com.example.senakitchnew.ui.Platos.PlatosFragment"
+        android:label="Platos"
+        tools:layout="@layout/fragment_platos" />
 
 
 </navigation>
