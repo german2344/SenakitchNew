@@ -1,6 +1,5 @@
 package com.example.senakitchnew.Services
 
-import com.example.senakitchnew.UsuariosResponse
 import com.example.senakitchnew.bring.RegistroBring
 import com.example.senakitchnew.bring.LoginBring
 import com.example.senakitchnew.bring.ProductBring
@@ -14,7 +13,6 @@ import com.example.senakitchnew.send.User
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -48,7 +46,14 @@ interface ApiService {
     @GET("/api/product/{id}")
     fun getMyProduct(@Path("id") id:String): Call<List<ProductSend>>
 
+    @GET("/api/product/{idProduct}")
+    fun getProductById(@Path("idProduct") idProduct: String): Call<ProductSend>
 
+    @PUT("/api/product/{idProduct}")
+    fun actualizarProduct(
+        @Path("idProduct") tipoAsignaturaId: String,
+        @Body body: ProductBring
+    ): Call<ProductSend>
 
     //////
     @GET("/api/product/{id}")

@@ -15,6 +15,13 @@
         android:theme="@style/Theme.SenakitchNew"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+
+
+
+        <activity
+            android:name=".Crud.CrudUpdateActivity"
+            android:exported="false" />
         <activity
             android:name=".Crud.MyCrudsActivity.CrudUpdate1Activity"
             android:exported="false" />

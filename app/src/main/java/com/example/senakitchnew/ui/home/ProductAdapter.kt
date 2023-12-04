@@ -8,7 +8,9 @@ import com.example.senakitchnew.send.PlatosSend
 import com.example.senakitchnew.send.ProductSend
 import com.example.senakitchnew.ui.Platos.PlatosViewHolder
 
-class ProductAdapter(private val contentList: List<ProductSend>) : RecyclerView.Adapter<ProductViewHolder>() {
+
+
+class ProductAdapter(private val contentList: List<ProductSend>, private val onClickListener:(ProductSend ) -> Unit) : RecyclerView.Adapter<ProductViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):  ProductViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,6 +22,12 @@ class ProductAdapter(private val contentList: List<ProductSend>) : RecyclerView.
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = contentList[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
     }
+        private var listaDeDatos: List<ProductSend> = listOf()
+
+        fun setData(newData: List<ProductSend>) {
+            listaDeDatos = newData
+            notifyDataSetChanged()
+        }
 }

@@ -73,7 +73,6 @@ class CrudPostActivity : AppCompatActivity() {
                     price,
                     description,
                     quantity,
-                    user!!.id
                 )
 
                 Log.d("CrudPostActivity", "ProductBring: $productBring")
@@ -117,15 +116,13 @@ class CrudPostActivity : AppCompatActivity() {
             contentRequest.description.toRequestBody("text/plain".toMediaTypeOrNull())
         val quantityRequestBody =
             contentRequest.quantity?.toRequestBody("text/plain".toMediaTypeOrNull())
-        val userIdRequestBody =
-            contentRequest.user_id.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+
 
         val productRequest = ProductBring(
             name = contentRequest.name,
             price = contentRequest.price,
             description = contentRequest.description,
             quantity = contentRequest.quantity,
-            user_id = contentRequest.user_id
         )
 
         apiService.createProduct(productRequest).enqueue(object : Callback<ProductBring> {
@@ -141,10 +138,7 @@ class CrudPostActivity : AppCompatActivity() {
                     // Llamar a la función createContent después de obtener el usuario
                     createContent()
 
-                    // Iniciar la actividad del fragmento deseado
-                    val intent = Intent()
-                    intent.putExtra("userId", contentRequest.user_id) // Usar el ID del producto creado
-                    setResult(-1, intent)
+
                     finish() // Opcional: finalizar la actividad actual si no quieres volver a ella
                 } else {
                     // Manejar el error de la respuesta

@@ -2,6 +2,7 @@ package com.example.senakitchnew.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.senakitchnew.Crud.CrudPostActivity
+import com.example.senakitchnew.Crud.CrudUpdateActivity
 
 import com.example.senakitchnew.Crud.MyCrudsActivity.MyCrudsActivity
 import com.example.senakitchnew.R
 import com.example.senakitchnew.databinding.FragmentPlatosBinding
+import com.example.senakitchnew.send.ProductSend
 
 class HomeFragment : Fragment() {
 
@@ -60,12 +63,29 @@ class HomeFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val PlatosViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        val platosViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-        PlatosViewModel.contentData.observe(viewLifecycleOwner) { newData ->
-            adapter = ProductAdapter(newData)
-            recyclerView.adapter = adapter
+        // Observar cambios en los datos y actualizar el adaptador
+        platosViewModel.contentData.observe(viewLifecycleOwner) { tipoAsignaturaResponse ->
+            tipoAsignaturaResponse?.let {
+                // Inicializar el adaptador con los datos del ViewModel
+                adapter = ProductAdapter(it) { seleccionarProduct ->
+                    Log.e("SHIT", "${seleccionarProduct.id}")
+                    onItemSelected(seleccionarProduct)
+                }
+
+                // Configurar el adaptador en el RecyclerView
+                recyclerView.adapter = adapter
+            }
         }
+    }
+
+    fun onItemSelected(tipoproductoResponse: ProductSend) {
+        Log.d("API_RESPONSEGGG", "Selected Product ID: ${tipoproductoResponse.id}")
+        // voy a ver lo que esta pasando esto aqui
+        val intent = Intent(requireContext(), CrudUpdateActivity::class.java)
+        intent.putExtra("TIPOASIGNATURA_ID", tipoproductoResponse.id)
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

@@ -5,7 +5,6 @@ data class ProductBring(
     val price: String, // Assuming this is a String for now
     val description: String,
     var quantity: String?,
-    val user_id: Int
 )
 
 

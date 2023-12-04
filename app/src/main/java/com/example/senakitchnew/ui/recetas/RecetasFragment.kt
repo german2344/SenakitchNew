@@ -56,7 +56,7 @@ class RecetasFragment : Fragment() {
         val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         homeViewModel.contentData.observe(viewLifecycleOwner) { newData ->
-            adapter = ProductAdapter(newData)
+           // adapter = ProductAdapter(newData)
             recyclerView.adapter = adapter
         }
     }

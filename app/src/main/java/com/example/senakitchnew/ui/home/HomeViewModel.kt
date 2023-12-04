@@ -31,6 +31,11 @@ class HomeViewModel : ViewModel() {
 
     private val userById = MutableLiveData<User>()
     val user: LiveData<User> get() = userById
+
+    // Método para actualizar _contentData cuando recibes nuevos datos
+    fun updateContentData(newData: List<ProductSend>) {
+        _contentData.value = newData
+    }
     private fun getAllContent() {
         CoroutineScope(Dispatchers.IO).launch {
             val apiGetContent = ApiConnection.getApiService().getProduct()

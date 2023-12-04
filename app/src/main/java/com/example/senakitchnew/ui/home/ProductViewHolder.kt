@@ -1,22 +1,13 @@
 package com.example.senakitchnew.ui.home
 
-import android.content.Intent
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import androidx.core.content.ContentProviderCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
-
 import com.bumptech.glide.Glide
+
 import com.example.senakitchnew.Connection.ApiConnection
-import com.example.senakitchnew.Crud.CrudUpdateActivity
-import com.example.senakitchnew.Crud.MyCrudsActivity.CrudUpdate1Activity
 import com.example.senakitchnew.ImportClasses.popupalert
 import com.example.senakitchnew.R
-import com.example.senakitchnew.activity_login
-import com.example.senakitchnew.databinding.ActivityContentUpdateBinding
-import com.example.senakitchnew.databinding.ActivityCrudUpdate1Binding
 import com.example.senakitchnew.databinding.ItemContentBinding
 import com.example.senakitchnew.send.ProductSend
 import retrofit2.Call
@@ -34,65 +25,68 @@ class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 
 
-    fun render(contentModel: ProductSend) {
-        idabc = contentModel.id
+    fun render(contentModel: ProductSend, onClickListener:(ProductSend) -> Unit) {
         binding.title.text = contentModel.name
         binding.Preci.text = contentModel.price
         binding.description.text = contentModel.description
         binding.quantity.text = contentModel.quantity
 
         // Verificar si la URL es para un video o una imagen
-        if (contentModel.url?.matches(Regex(".+\\.(mp4|avi|mov|mkv|wmv|flv|webm)$", RegexOption.IGNORE_CASE)) == true) {
-            // Si es un video, usar VideoView
-            Log.d("imagenUrl", ApiConnection.baseUrl + contentModel.url)
-            binding.imageView.visibility = View.GONE
-        } else {
-            // Si es una imagen, usar Glide para cargar la imagen en el ImageView
-            Log.d("ImageUrl", ApiConnection.baseUrl + contentModel.url)
-            binding.imageView.visibility = View.VISIBLE
-            Glide.with(itemView.context)
-                .load(ApiConnection.baseUrl + contentModel.url)
-                .placeholder(R.drawable.logofinal2023)
-                .into(binding.imageView)
+//        if (contentModel.url?.matches(Regex(".+\\.(mp4|avi|mov|mkv|wmv|flv|webm)$", RegexOption.IGNORE_CASE)) == true) {
+//            // Si es un video, usar VideoView
+//            Log.d("imagenUrl", ApiConnection.baseUrl + contentModel.url)
+//            binding.imageView.visibility = View.GONE
+//        } else {
+//            // Si es una imagen, usar Glide para cargar la imagen en el ImageView
+//            Log.d("ImageUrl", ApiConnection.baseUrl + contentModel.url)
+//            binding.imageView.visibility = View.VISIBLE
+//            Glide.with(itemView.context)
+//                .load(ApiConnection.baseUrl + contentModel.url)
+//                .placeholder(R.drawable.logofinal2023)
+//                .into(binding.imageView)
+//        }
+
+        binding.btnEdit.setOnClickListener{
+            onClickListener(contentModel)
+        }
+        clickListener(contentModel.id)
         }
 
-            binding.btnEdit.setOnClickListener {
-                // Manejar el clic del botón para redirigir
-                val intent = Intent(itemView.context, CrudUpdate1Activity::class.java)
-                itemView.context.startActivity(intent)
-            }
-        clickListener()
-        }
 
 
 
 
-
-    private fun clickListener() {
+    private fun clickListener(id: Int) {
         binding.btnEliminarproduct.setOnClickListener {
-            Log.d(TAG, "ELIMINANDO..." + idabc)
-            val apiGetContent = ApiConnection.getApiService().deleteProduct(idabc)
+            // Registro de información sobre la eliminación
+            Log.d(TAG, "ELIMINANDO... $id")
+
+            // Llamada a la API para eliminar un tipo de asignatura
             val apiService = ApiConnection.getApiService()
-            val deleteUserCall: Call<Void> = apiService.deleteProduct(idabc)
+            val deleteUserCall: Call<Void> = apiService.deleteProduct(id.toString())
+
+            // Manejo de la respuesta de la llamada a la API
             deleteUserCall.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         // Eliminación exitosa
-                        Log.d("User deletion", "User deleted successfully")
-
+                        Log.d("TipoAsignatura deletion", "TipoAsignatura deleted successfully")
                     } else {
                         // Manejar errores en la respuesta, si es necesario
                         Log.e(
-                            "User deletion",
-                            "Failed to delete user. Response code: ${response.code()}"
+                            "TipoAsignatura deletion",
+                            "Failed to delete TipoAsignatura. Response code: ${response.code()}"
                         )
-                        // _deleteUserResult.value = false
+                        // Muestra una alerta de error
+                        toast.toastError(itemView.context, "Error", "Error eliminando TipoAsignatura")
                     }
                 }
+
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     // Manejar errores en la solicitud, si es necesario
-                    Log.e("User deletion", "Error deleting user", t)
-                    // _deleteUserResult.value = false
+                    Log.e("TipoAsignatura deletion", "Error deleting TipoAsignatura", t)
+                    // Muestra una alerta de error
+                    toast.toastError(itemView.context, "Error", "Error eliminando TipoAsignatura")
                 }
             })
         }

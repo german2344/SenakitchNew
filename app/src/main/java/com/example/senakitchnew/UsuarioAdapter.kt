@@ -25,7 +25,7 @@ class UsuarioAdapter(
     override fun onBindViewHolder(holder: UsuarioViewHolder, position: Int) {
         val usuario = listausuarios.get(position)
 
-        holder.tvIdUsuario.text = usuario.id.toString()
+     //   holder.tvIdUsuario.text = usuario.id.toString()
         holder.tvNombre.text = usuario.name
         holder.tvEmail.text = usuario.description
 

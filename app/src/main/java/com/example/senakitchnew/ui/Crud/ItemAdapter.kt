@@ -40,7 +40,7 @@ class ItemAdapter(private var contentList: List<ProductSend>) : RecyclerView.Ada
         fun bind(item: ProductSend) {
             title.text = item.name
             descripcion.text = item.description
-            Preci.text = item.price
+            Preci.text = item.price.toString()
         }
     }
 }
