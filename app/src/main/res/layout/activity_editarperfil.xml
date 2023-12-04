@@ -11,14 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-                    <ImageView
-                        android:layout_marginLeft="340dp"
-                        android:id="@+id/btnDeleteUser"
-                        android:background="@drawable/basura"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:backgroundTint="@color/eliminar"
-                        android:text="Eliminar perfil" />
+
+        <ImageView
+            android:id="@+id/btnDeleteUser"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="340dp"
+            android:background="@drawable/basura"
+            android:backgroundTint="@color/eliminar"
+            android:text="Eliminar perfil" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -323,6 +325,36 @@
                 style="@android:style/Widget.Button"
                 android:textAlignment="viewStart" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mycontent"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_background_2"
+                android:drawableStart="@drawable/ic_2"
+                android:drawablePadding="20dp"
+                android:paddingStart="20dp"
+                android:text="Editar perfil"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                style="@android:style/Widget.Button"
+                android:textAlignment="viewStart" />
+        </LinearLayout>
+
     </LinearLayout>
     </LinearLayout>
 

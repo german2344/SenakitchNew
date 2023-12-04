@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             card_view:cardCornerRadius="16dp"
-            card_view:cardBackgroundColor="@color/colorpri"
+            card_view:cardBackgroundColor="#6BA86D"
             card_view:cardElevation="4dp">
 
             <!-- Contenido de CardView -->
@@ -106,7 +106,7 @@
                     android:numStars="5"
                     android:rating="3.5"
                     android:stepSize="0.1"
-                    android:progressBackgroundTint="@color/colorpri"
+                    android:progressBackgroundTint="#6BA86D"
                     android:progressTint="@color/white"
                     android:secondaryProgressTint="@color/black"
                     />

@@ -14,6 +14,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.senakitchnew.Connection.ApiConnection
+import com.example.senakitchnew.Crud.CrudPostActivity
+import com.example.senakitchnew.Crud.MyCrudsActivity.MyCrudsActivity
+import com.example.senakitchnew.Crud.MyCrudsActivity.MyCrudsViewHolder
 import com.example.senakitchnew.ImportClasses.popupalert
 import com.example.senakitchnew.R
 import com.example.senakitchnew.bring.UserBring
@@ -63,7 +66,9 @@ class EditperfilFragment : Fragment() {
             binding.btnEditarPerfil.setOnClickListener {
                 mostraDialogo()
             }
-
+            binding.mycontent.setOnClickListener {
+                startActivity(Intent(requireContext(), MyCrudsActivity::class.java))
+            }
         }
 
         return root
@@ -100,8 +105,9 @@ class EditperfilFragment : Fragment() {
                     // Usar startActivity con el contexto
                     startActivity(Intent(context, ActivityLoginBinding::class.java))
 
+                    editPerfilModel.fetchUserProfile()
                     // Finalizar la actividad o fragmento actual después de la animación
-                    requireActivity().finish()
+
                 }
             } else {
                 // La eliminación falló
@@ -205,6 +211,8 @@ class EditperfilFragment : Fragment() {
         val alertDialog = builder.create()
         alertDialog.show()
     }
+
+
 
 
 

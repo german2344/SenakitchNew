@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
         card_view:cardCornerRadius="16dp"
-        card_view:cardBackgroundColor="@color/colorpri"
+        card_view:cardBackgroundColor="#6BA86D"
         card_view:cardElevation="4dp"
         android:layout_marginBottom="16dp">
 

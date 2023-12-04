@@ -37,7 +37,7 @@ class menu_activity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.edit, R.id.nav_slideshow1, R.id.Comentario, R.id.Descargar
+                R.id.nav_home, R.id.edit, R.id.nav_slideshow1, R.id.Comentario, R.id.Descargar,R.id.Platos
             ), drawerLayout
         )
 
@@ -47,7 +47,7 @@ class menu_activity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.salir -> {
                     // Navigate to the login destination
-                    val loginIntent = Intent(this, activity_login::class.java)
+                    val loginIntent = Intent(this, my_inicio_activity::class.java)
                     startActivity(loginIntent)
                     true
                 }

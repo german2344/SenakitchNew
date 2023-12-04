@@ -16,13 +16,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Crud.MyCrudsActivity.CrudUpdate1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Crud.CrudPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Crud.MyCrudsActivity.MyCrudsViewHolder"
+            android:exported="false" />
+        <activity
+            android:name=".Crud.MyCrudsActivity.MyCrudsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".my_inicio_activity"
+            android:exported="false" />
+        <activity
+            android:name=".micrudActivity"
+            android:exported="false" />
+        <activity
             android:name=".platos_activity"
             android:exported="false" />
         <activity
             android:name=".activity_menu"
-            android:exported="false" />
-        <activity
-            android:name=".descargas_activity"
             android:exported="false" />
         <activity
             android:name=".productos_activity"

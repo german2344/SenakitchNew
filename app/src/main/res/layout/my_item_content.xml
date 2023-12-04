@@ -24,10 +24,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mi_contenido"
+                android:text="hola"
                 android:textAlignment="center" />
 
             <VideoView
@@ -45,15 +45,15 @@
                 android:layout_gravity="center_vertical"
                 android:scaleType="centerInside"
                 android:layout_marginTop="20dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 tools:ignore="ContentDescription" />
 
 
             <TextView
-                android:id="@+id/author"
+                android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/this_is_a_author"
+                android:text="Price"
                 android:layout_gravity="bottom"
                 android:layout_margin="10dp" />
 
@@ -71,11 +71,40 @@
                     app:civ_border_width="2dp"
                     app:civ_border_color="#376A6363"
                     android:layout_gravity="center"
-                    android:contentDescription="edit_content" />
+                    android:contentDescription="hola" />
+
+
 
             </LinearLayout>
 
-            <!--Button update-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="description"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cuenta"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

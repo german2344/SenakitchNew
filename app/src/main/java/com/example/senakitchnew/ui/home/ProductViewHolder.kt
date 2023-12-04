@@ -1,9 +1,7 @@
 package com.example.senakitchnew.ui.home
 
-import android.app.AlertDialog
-import android.content.Context
+import android.content.Intent
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import androidx.core.content.ContentProviderCompat
@@ -12,8 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.bumptech.glide.Glide
 import com.example.senakitchnew.Connection.ApiConnection
+import com.example.senakitchnew.Crud.CrudUpdateActivity
+import com.example.senakitchnew.Crud.MyCrudsActivity.CrudUpdate1Activity
 import com.example.senakitchnew.ImportClasses.popupalert
 import com.example.senakitchnew.R
+import com.example.senakitchnew.activity_login
+import com.example.senakitchnew.databinding.ActivityContentUpdateBinding
+import com.example.senakitchnew.databinding.ActivityCrudUpdate1Binding
 import com.example.senakitchnew.databinding.ItemContentBinding
 import com.example.senakitchnew.send.ProductSend
 import retrofit2.Call
@@ -36,24 +39,32 @@ class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.title.text = contentModel.name
         binding.Preci.text = contentModel.price
         binding.description.text = contentModel.description
+        binding.quantity.text = contentModel.quantity
 
         // Verificar si la URL es para un video o una imagen
-        if (contentModel.image?.matches(Regex(".+\\.(mp4|avi|mov|mkv|wmv|flv|webm)$", RegexOption.IGNORE_CASE)) == true) {
+        if (contentModel.url?.matches(Regex(".+\\.(mp4|avi|mov|mkv|wmv|flv|webm)$", RegexOption.IGNORE_CASE)) == true) {
             // Si es un video, usar VideoView
-            Log.d("imagenUrl", ApiConnection.baseUrl + contentModel.image)
+            Log.d("imagenUrl", ApiConnection.baseUrl + contentModel.url)
             binding.imageView.visibility = View.GONE
         } else {
             // Si es una imagen, usar Glide para cargar la imagen en el ImageView
-            Log.d("ImageUrl", ApiConnection.baseUrl + contentModel.image)
+            Log.d("ImageUrl", ApiConnection.baseUrl + contentModel.url)
             binding.imageView.visibility = View.VISIBLE
             Glide.with(itemView.context)
-                .load(ApiConnection.baseUrl + contentModel.image)
+                .load(ApiConnection.baseUrl + contentModel.url)
                 .placeholder(R.drawable.logofinal2023)
                 .into(binding.imageView)
-
         }
+
+            binding.btnEdit.setOnClickListener {
+                // Manejar el clic del botón para redirigir
+                val intent = Intent(itemView.context, CrudUpdate1Activity::class.java)
+                itemView.context.startActivity(intent)
+            }
         clickListener()
-    }
+        }
+
+
 
 
 

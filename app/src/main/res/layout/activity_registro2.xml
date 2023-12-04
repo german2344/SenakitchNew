@@ -288,6 +288,26 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:textSize="10dp"
+                android:id="@+id/derechos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copyright"
+                android:textColor="@color/colorpri"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="18dp"
+                android:backgroundTint="@color/colorpri"
+                android:background="@drawable/derechos" />
+        </LinearLayout>
     </LinearLayout>
 
 

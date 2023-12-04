@@ -12,6 +12,7 @@ import com.example.senakitchnew.databinding.ActivityLoginBinding
 import com.example.senakitchnew.ImportClasses.popupalert
 import com.example.senakitchnew.send.LoginSend
 import com.example.senakitchnew.send.UserAdmin
+import com.example.senakitchnew.ui.home.HomeViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,6 +38,11 @@ class activity_login : AppCompatActivity() {
         binding.newcuenta.setOnClickListener{
             toast.toastSuccess(this, "Senakitch", "Olvide mi contraseña")
             startActivity(Intent(this, activity_registro2::class.java))
+        }
+
+        binding.regresar.setOnClickListener{
+            toast.toastSuccess(this, "Senakitch", "Inicio")
+            startActivity(Intent(this, my_inicio_activity::class.java))
         }
 
     }//Fin
@@ -95,9 +101,6 @@ class activity_login : AppCompatActivity() {
         return PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-
-
-
     /**
      * Function by move to MainActivity
      */
@@ -119,7 +122,7 @@ class activity_login : AppCompatActivity() {
     }
 
     private fun switchToNewLayout() {
-        val newLayout = layoutInflater.inflate(R.layout.activity_menu, null)
+        val newLayout = layoutInflater.inflate(R.layout.item_crud, null)
         setContentView(newLayout)
     }
 
