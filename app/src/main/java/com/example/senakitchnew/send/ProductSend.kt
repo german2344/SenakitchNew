@@ -4,6 +4,7 @@ data class ProductSend (
     val id: Int,
     val name: String?,
     val price: String?,
+    val image:String,
     val description: String?,
     val quantity: String,
     val created_at:String,

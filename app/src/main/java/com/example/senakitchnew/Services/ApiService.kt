@@ -69,23 +69,23 @@ interface ApiService {
     fun updateProfile(@Body userRequest: UserBring, @Path("userId") userId: String): Call<User>
 
     @Multipart
-    @POST("/api/product")
-    fun createContent(
+    @POST("api/product")
+    fun createProduct(
         @Part("name") name: RequestBody,
-        @Part("price") price: RequestBody?,
+        @Part("price") price: RequestBody,
+        @Part image: MultipartBody.Part,
         @Part("description") description: RequestBody,
         @Part("quantity") quantity: RequestBody,
-        @Part Url: MultipartBody.Part,
         @Part("user_id") userId: RequestBody
-    ): Call<ProductSend>
+    ): Call<ProductBring>
 
     @DELETE("/api/product/{productId}")
     fun deleteProduct(@Path("productId") productId: String): Call<Void>
 
 
 
-    @POST("/api/product")
-    fun createProduct(@Body productRequest: ProductBring): Call<ProductBring>
+//    @POST("/api/product")
+//    fun createProduct(@Body productRequest: ProductBring): Call<ProductBring>
 
 
     @DELETE("/api/product/{id}")

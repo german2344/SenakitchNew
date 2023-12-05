@@ -127,6 +127,8 @@ dependencies {
 
 
 
+    implementation ("com.squareup.okio:okio:2.10.0")
+
 
 
 }
