@@ -9,7 +9,6 @@ import com.example.senakitchnew.Connection.ApiConnection
 import com.example.senakitchnew.Crud.CrudUpdateActivity
 import com.example.senakitchnew.ImportClasses.popupalert
 import com.example.senakitchnew.R
-import com.example.senakitchnew.databinding.ActivityMyCrudsBinding
 import com.example.senakitchnew.send.ProductSend
 import com.example.senakitchnew.send.User
 import com.example.senakitchnew.send.UserAdmin
@@ -34,17 +33,17 @@ class MyCrudsActivity : AppCompatActivity() {
 //        binding = ActivityMyCrudsBinding.inflate(layoutInflater)
 //        setContentView(binding.root)
 //        userId = UserAdmin.getUserId()
-
+//
 //      getUserProfile(userId.toString())
 //        initRecyclerView()
 //    }
-
+//
 //    private fun initRecyclerView()
 //    {
 //        binding.recyclerMyContent.layoutManager = LinearLayoutManager(this)
 //        getAllContent()
 //    }
-
+//
 //    private fun getAllContent() {
 //        CoroutineScope(Dispatchers.IO).launch {
 //            val apiGetContent = ApiConnection.getApiService().getProduct()
@@ -84,8 +83,8 @@ class MyCrudsActivity : AppCompatActivity() {
 //        intent.putExtra("CONTENIDO_ID", myContentResponse.id)
 //        startActivity(intent)
 //    }
-
-
+//
+//
 //    private fun getUserProfile(userId: String) {
 //        val apiService = ApiConnection.getApiService()
 //
@@ -103,5 +102,5 @@ class MyCrudsActivity : AppCompatActivity() {
 //            }
 //        })
 //    }
-//}
+
 }
